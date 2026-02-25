@@ -3,518 +3,962 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <!-- Primary Meta Tags -->
-  <!-- TODO: Replace with your paper title and author names -->
-  <meta name="title" content="PAPER_TITLE - AUTHOR_NAMES">
-  <!-- TODO: Write a compelling 150-160 character description of your research -->
-  <meta name="description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Add 5-10 relevant keywords for your research area -->
-  <meta name="keywords" content="KEYWORD1, KEYWORD2, KEYWORD3, machine learning, computer vision, AI">
-  <!-- TODO: List all authors -->
-  <meta name="author" content="FIRST_AUTHOR_NAME, SECOND_AUTHOR_NAME">
-  <meta name="robots" content="index, follow">
-  <meta name="language" content="English">
-  
-  <!-- Open Graph / Facebook -->
+  <meta name="title" content="CoVe: Training Interactive Tool-Use Agents via Constraint-Guided Verification">
+  <meta name="description" content="CoVe (Constraint-Verification) is a post-training data synthesis framework designed for training interactive tool-use agents while ensuring both data complexity and correctness.">
+  <meta name="keywords" content="Interactive Tool-Use Agents, Constraint-Guided Verification, CoVe, LLM, Agents, Tool Use, Reinforcement Learning, SFT, tau-bench">
+  <meta name="author" content="Jinpeng Chen, Cheng Gong, Hanbo Li, Ziru Liu, Zichen Tian, Xinyu Fu, Shi Wu, Chenyang Zhang, Wu Zhang, Suiyun Zhang, Dandan Tu, Rui Liu">
+
   <meta property="og:type" content="article">
-  <!-- TODO: Replace with your institution or lab name -->
-  <meta property="og:site_name" content="INSTITUTION_OR_LAB_NAME">
-  <!-- TODO: Same as paper title above -->
-  <meta property="og:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta property="og:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Replace with your actual website URL -->
-  <meta property="og:url" content="https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE">
-  <!-- TODO: Create a 1200x630px preview image and update path -->
-  <meta property="og:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="PAPER_TITLE - Research Preview">
-  <meta property="article:published_time" content="2024-01-01T00:00:00.000Z">
-  <meta property="article:author" content="FIRST_AUTHOR_NAME">
-  <meta property="article:section" content="Research">
-  <meta property="article:tag" content="KEYWORD1">
-  <meta property="article:tag" content="KEYWORD2">
+  <meta property="og:site_name" content="Huawei Research">
+  <meta property="og:title" content="CoVe: Training Interactive Tool-Use Agents via Constraint-Guided Verification">
+  <meta property="og:description" content="CoVe (Constraint-Verification) is a post-training data synthesis framework designed for training interactive tool-use agents while ensuring both data complexity and correctness.">
+  <meta property="og:url" content="https://cove-agent.github.io/">
+  <meta property="og:image" content="https://cove-agent.github.io/static/images/social_preview.png">
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <!-- TODO: Replace with your lab/institution Twitter handle -->
-  <meta name="twitter:site" content="@YOUR_TWITTER_HANDLE">
-  <!-- TODO: Replace with first author's Twitter handle -->
-  <meta name="twitter:creator" content="@AUTHOR_TWITTER_HANDLE">
-  <!-- TODO: Same as paper title above -->
-  <meta name="twitter:title" content="PAPER_TITLE">
-  <!-- TODO: Same as description above -->
-  <meta name="twitter:description" content="BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS">
-  <!-- TODO: Same as social preview image above -->
-  <meta name="twitter:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta name="twitter:image:alt" content="PAPER_TITLE - Research Preview">
+  <meta name="citation_title" content="CoVe: Training Interactive Tool-Use Agents via Constraint-Guided Verification">
+  <meta name="citation_author" content="Chen, Jinpeng">
+  <meta name="citation_author" content="Gong, Cheng">
+  <meta name="citation_author" content="Li, Hanbo">
+  <meta name="citation_publication_date" content="2026">
+  <meta name="citation_arxiv_id" content="PLACEHOLDER_ARXIV_ID">
 
-  <!-- Academic/Research Specific -->
-  <meta name="citation_title" content="PAPER_TITLE">
-  <meta name="citation_author" content="FIRST_AUTHOR_LAST, FIRST_AUTHOR_FIRST">
-  <meta name="citation_author" content="SECOND_AUTHOR_LAST, SECOND_AUTHOR_FIRST">
-  <meta name="citation_publication_date" content="2024">
-  <meta name="citation_conference_title" content="CONFERENCE_NAME">
-  <meta name="citation_pdf_url" content="https://YOUR_DOMAIN.com/static/pdfs/paper.pdf">
-  
-  <!-- Additional SEO -->
-  <meta name="theme-color" content="#2563eb">
-  <meta name="msapplication-TileColor" content="#2563eb">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  
-  <!-- Preconnect for performance -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://ajax.googleapis.com">
-  <link rel="preconnect" href="https://documentcloud.adobe.com">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <title>CoVe: Training Interactive Tool-Use Agents via Constraint-Guided Verification</title>
 
-
-  <!-- TODO: Replace with your paper title and authors -->
-  <title> CoVe: Training Interactive Tool-Use Agents via Constraint-Guided Verification</title>
-  
-  <!-- Favicon and App Icons -->
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
   <link rel="apple-touch-icon" href="static/images/favicon.ico">
-  
-  <!-- Critical CSS - Load synchronously -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
   <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/index.css">
-  
-  <!-- Non-critical CSS - Load asynchronously -->
-  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  
-  <!-- Fallback for browsers that don't support preload -->
   <noscript>
-    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
     <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   </noscript>
-  
-  <!-- Fonts - Optimized loading -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Defer non-critical JavaScript -->
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
   <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
   <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script defer src="static/js/bulma-carousel.min.js"></script>
-  <script defer src="static/js/bulma-slider.min.js"></script>
-  <script defer src="static/js/index.js"></script>
-  
-  <!-- Structured Data for Academic Papers -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ScholarlyArticle",
-    "headline": "PAPER_TITLE",
-    "description": "BRIEF_DESCRIPTION_OF_YOUR_RESEARCH_CONTRIBUTION_AND_FINDINGS",
-    "author": [
-      {
-        "@type": "Person",
-        "name": "FIRST_AUTHOR_NAME",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      },
-      {
-        "@type": "Person",
-        "name": "SECOND_AUTHOR_NAME",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      }
-    ],
-    "datePublished": "2024-01-01",
-    "publisher": {
-      "@type": "Organization",
-      "name": "CONFERENCE_OR_JOURNAL_NAME"
-    },
-    "url": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE",
-    "image": "https://YOUR_DOMAIN.com/static/images/social_preview.png",
-    "keywords": ["KEYWORD1", "KEYWORD2", "KEYWORD3", "machine learning", "computer vision"],
-    "abstract": "FULL_ABSTRACT_TEXT_HERE",
-    "citation": "BIBTEX_CITATION_HERE",
-    "isAccessibleForFree": true,
-    "license": "https://creativecommons.org/licenses/by/4.0/",
-    "mainEntity": {
-      "@type": "WebPage",
-      "@id": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE"
-    },
-    "about": [
-      {
-        "@type": "Thing",
-        "name": "RESEARCH_AREA_1"
-      },
-      {
-        "@type": "Thing", 
-        "name": "RESEARCH_AREA_2"
-      }
-    ]
-  }
-  </script>
-  
-  <!-- Website/Organization Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "INSTITUTION_OR_LAB_NAME",
-    "url": "https://YOUR_INSTITUTION_WEBSITE.com",
-    "logo": "https://YOUR_DOMAIN.com/static/images/favicon.ico",
-    "sameAs": [
-      "https://twitter.com/YOUR_TWITTER_HANDLE",
-      "https://github.com/YOUR_GITHUB_USERNAME"
-    ]
-  }
-  </script>
+
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --accent: #7c3aed;
+      --bg-light: #f8fafc;
+      --bg-white: #ffffff;
+      --text-dark: #1e293b;
+      --text-mid: #475569;
+      --text-light: #94a3b8;
+      --border: #e2e8f0;
+      --highlight-bg: #eff6ff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-dark);
+      background: var(--bg-white);
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+    }
+    .site-nav .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 54px;
+    }
+    .site-nav .nav-brand {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text-dark);
+      text-decoration: none;
+    }
+    .site-nav .nav-links {
+      display: flex;
+      gap: 1.6rem;
+      list-style: none;
+      margin: 0; padding: 0;
+    }
+    .site-nav .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .site-nav .nav-links a:hover { color: var(--primary); }
+
+    /* ── HERO ── */
+    .hero-section {
+      padding: 5rem 2rem 3.5rem;
+      text-align: center;
+      background: linear-gradient(160deg, #f0f7ff 0%, #faf5ff 50%, #f0fdf4 100%);
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-section .paper-tag {
+      display: inline-block;
+      background: var(--highlight-bg);
+      color: var(--primary);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 4px 14px;
+      border-radius: 999px;
+      border: 1px solid #bfdbfe;
+      margin-bottom: 1.4rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .hero-section h1 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      line-height: 1.25;
+      color: var(--text-dark);
+      max-width: 900px;
+      margin: 0 auto 1.6rem;
+    }
+    .hero-section h1 .cove-logo {
+      height: 1.8em;
+      vertical-align: middle;
+      margin-right: 0.2em;
+      margin-bottom: 0.1em;
+    }
+    .hero-section h1 .highlight { color: var(--text-dark); }
+
+    /* Authors */
+    .author-list {
+      font-size: 1.05rem;
+      color: var(--text-mid);
+      margin-bottom: 0.6rem;
+      max-width: 860px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .author-list a {
+      color: var(--text-dark);
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .author-list a:hover { color: var(--primary); text-decoration: underline; }
+    .author-list sup { color: var(--primary); font-weight: 600; font-size: 0.7em; }
+
+    .affiliation-line {
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      margin-bottom: 0.3rem;
+    }
+    .affiliation-line sup { color: var(--primary); font-weight: 600; }
+
+    .contrib-note {
+      font-size: 0.82rem;
+      color: var(--text-light);
+      margin-bottom: 2rem;
+    }
+
+    /* Link buttons */
+    .link-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-top: 2rem;
+    }
+    .link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.3rem;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: 2px solid transparent;
+    }
+    .link-btn.btn-primary {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+    .link-btn.btn-primary:hover { background: var(--primary-dark); border-color: var(--primary-dark); }
+    .link-btn.btn-outline {
+      background: #fff;
+      color: var(--text-dark);
+      border-color: var(--border);
+    }
+    .link-btn.btn-outline:hover { border-color: var(--primary); color: var(--primary); background: var(--highlight-bg); }
+    .link-btn i { font-size: 1.05em; }
+
+    /* ── SECTIONS ── */
+    .content-section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+    .content-section.shaded {
+      background: var(--bg-light);
+    }
+    .content-section.shaded-wrapper {
+      background: var(--bg-light);
+    }
+    .full-width-shaded {
+      background: var(--bg-light);
+    }
+    .section-title {
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.7rem;
+      border-bottom: 3px solid var(--primary);
+      display: inline-block;
+    }
+
+    /* Abstract */
+    .abstract-text {
+      font-size: 1.05rem;
+      color: var(--text-mid);
+      line-height: 1.8;
+    }
+    .abstract-text b { color: var(--text-dark); }
+
+    /* Figures */
+    .fig-container {
+      margin: 2rem 0;
+    }
+    .fig-container img {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .fig-placeholder {
+      width: 100%;
+      min-height: 360px;
+      background: linear-gradient(135deg, #eff6ff, #f5f3ff);
+      border: 2px dashed #bfdbfe;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #93c5fd;
+      font-size: 0.9rem;
+      gap: 10px;
+    }
+    .fig-placeholder i { font-size: 2.5rem; }
+    .fig-caption {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      color: var(--text-mid);
+      text-align: center;
+      line-height: 1.6;
+    }
+    .fig-caption b { color: var(--text-dark); }
+
+    /* Method steps */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .step-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      position: relative;
+    }
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px; height: 36px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 700;
+      border-radius: 50%;
+      margin-bottom: 0.9rem;
+    }
+    .step-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .step-card p { font-size: 0.88rem; color: var(--text-mid); margin: 0; }
+
+    /* Highlights / stats row */
+    .highlights-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin: 2.5rem 0;
+    }
+    .highlight-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+    .highlight-card .big-num {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.2;
+    }
+    .highlight-card .big-label {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      margin-top: 0.4rem;
+    }
+
+    /* Tables */
+    .results-table-wrap {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+    }
+    .results-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+    }
+    /* Sub-headers (p1-p4) and all data rows are smaller */
+    .results-table thead tr:last-child th,
+    .results-table tbody td,
+    .results-table tbody th {
+      font-size: 0.68rem;
+    }
+    .results-table th, .results-table td {
+      padding: 0.65rem 0.85rem;
+      text-align: center;
+      border: 1px solid var(--border);
+    }
+    .results-table tbody td:first-child {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    /* Group dividers: after Model col, after Airline p4, after Retail p4 */
+    /* thead row 1: Model(1), Airline(2), Retail(3), Average(4) */
+    .results-table thead tr:first-child th:nth-child(1) { border-right: 2px solid #64748b; }
+    .results-table thead tr:first-child th:nth-child(2) { border-right: 2px solid #64748b; }
+    .results-table thead tr:first-child th:nth-child(3) { border-right: 2px solid #64748b; }
+    /* thead row 2: Airline p1-p4(1-4), Retail p1-p4(5-8), Average p1-p4(9-12) */
+    .results-table thead tr:last-child th:nth-child(4) { border-right: 2px solid #64748b; }
+    .results-table thead tr:last-child th:nth-child(8) { border-right: 2px solid #64748b; }
+    /* tbody: Model(1), Airline p4(5), Retail p4(9) — skip group-row */
+    .results-table tbody tr:not(.group-row) td:nth-child(1) { border-right: 2px solid #64748b; }
+    .results-table tbody tr:not(.group-row) td:nth-child(5) { border-right: 2px solid #64748b; }
+    .results-table tbody tr:not(.group-row) td:nth-child(9) { border-right: 2px solid #64748b; }
+    .results-table th {
+      background: #f1f5f9;
+      font-weight: 700;
+      color: var(--text-dark);
+    }
+    .results-table .group-row td {
+      background: #f8fafc;
+      font-style: italic;
+      color: var(--text-mid);
+      font-weight: 600;
+      text-align: center;
+    }
+    .results-table td:first-child { text-align: left; font-weight: 500; }
+    .results-table .ours td {
+      background: #dbeafe;
+    }
+    .results-table .ours td:first-child { color: var(--primary-dark); font-weight: 600; }
+    .results-table .best { font-weight: 700; }
+    .results-table .second { text-decoration: underline; }
+    .table-caption {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      margin-bottom: 0.8rem;
+      line-height: 1.6;
+    }
+
+    /* Ablation two-col */
+    .ablation-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+    @media (max-width: 700px) {
+      .ablation-grid { grid-template-columns: 1fr; }
+      .hero-section h1 { font-size: 1.5rem; }
+      .site-nav .nav-links { display: none; }
+    }
+    .ablation-grid .ablation-card h4 {
+      font-size: 0.92rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      color: var(--text-dark);
+    }
+
+    /* Contributions list */
+    .contrib-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.2rem 0;
+    }
+    .contrib-list li {
+      display: flex;
+      gap: 0.9rem;
+      align-items: flex-start;
+      padding: 0.9rem 1.1rem;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 0.85rem;
+      font-size: 0.95rem;
+      color: var(--text-mid);
+    }
+    .contrib-list li .icon {
+      flex-shrink: 0;
+      width: 30px; height: 30px;
+      background: var(--highlight-bg);
+      color: var(--primary);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem;
+    }
+    .contrib-list b { color: var(--text-dark); }
+
+    /* BibTeX */
+    .bibtex-wrap {
+      position: relative;
+      margin-top: 1rem;
+    }
+    .bibtex-code {
+      background: #1e293b;
+      color: #e2e8f0;
+      border-radius: 10px;
+      padding: 1.4rem 1.6rem;
+      font-family: 'Courier New', monospace;
+      font-size: 0.83rem;
+      line-height: 1.6;
+      overflow-x: auto;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 10px; right: 12px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #e2e8f0;
+      border-radius: 6px;
+      padding: 5px 12px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .copy-btn:hover { background: rgba(255,255,255,0.2); }
+
+    /* Footer */
+    .site-footer {
+      background: #1e293b;
+      color: #94a3b8;
+      text-align: center;
+      padding: 2.5rem 2rem;
+      font-size: 0.85rem;
+      line-height: 1.8;
+    }
+    .site-footer a { color: #93c5fd; text-decoration: none; }
+    .site-footer a:hover { text-decoration: underline; }
+
+    /* Scroll-to-top */
+    #scroll-top {
+      position: fixed;
+      bottom: 2rem; right: 2rem;
+      width: 42px; height: 42px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1rem;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(37,99,235,0.4);
+      transition: background 0.2s;
+      z-index: 200;
+    }
+    #scroll-top:hover { background: var(--primary-dark); }
+    #scroll-top.visible { display: flex; }
+
+    /* Inline tag */
+    .tag-pill {
+      display: inline-block;
+      background: var(--highlight-bg);
+      color: var(--primary);
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 2px 10px;
+      border-radius: 999px;
+      border: 1px solid #bfdbfe;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+  </style>
 </head>
 <body>
 
+<!-- ─── NAV ─── -->
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="nav-brand" href="#">CoVe</a>
+    <ul class="nav-links">
+      <li><a href="#abstract">Abstract</a></li>
+      <li><a href="#method">Method</a></li>
+      <li><a href="#results">Results</a></li>
 
-  <!-- Scroll to Top Button -->
-  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
-    <i class="fas fa-chevron-up"></i>
-  </button>
+      <li><a href="#bibtex">BibTeX</a></li>
+    </ul>
+  </div>
+</nav>
 
-  <!-- More Works Dropdown -->
-  <div class="more-works-container">
-    <button class="more-works-btn" onclick="toggleMoreWorks()" title="View More Works from Our Lab">
-      <i class="fas fa-flask"></i>
-      More Works
-      <i class="fas fa-chevron-down dropdown-arrow"></i>
-    </button>
-    <div class="more-works-dropdown" id="moreWorksDropdown">
-      <div class="dropdown-header">
-        <h4>More Works from Our Lab</h4>
-        <button class="close-btn" onclick="toggleMoreWorks()">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
-      <div class="works-list">
-        <!-- TODO: Replace with your lab's related works -->
-        <a href="https://arxiv.org/abs/PAPER_ID_1" class="work-item" target="_blank">
-          <div class="work-info">
-            <!-- TODO: Replace with actual paper title -->
-            <h5>Paper Title 1</h5>
-            <!-- TODO: Replace with brief description -->
-            <p>Brief description of the work and its main contribution.</p>
-            <!-- TODO: Replace with venue and year -->
-            <span class="work-venue">Conference/Journal 2024</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <!-- TODO: Add more related works or remove extra items -->
-        <a href="https://arxiv.org/abs/PAPER_ID_2" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 2</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-        <a href="https://arxiv.org/abs/PAPER_ID_3" class="work-item" target="_blank">
-          <div class="work-info">
-            <h5>Paper Title 3</h5>
-            <p>Brief description of the work and its main contribution.</p>
-            <span class="work-venue">Conference/Journal 2023</span>
-          </div>
-          <i class="fas fa-external-link-alt"></i>
-        </a>
-      </div>
-    </div>
+<!-- ─── HERO ─── -->
+<section class="hero-section">
+  <h1>
+    <img src="static/images/mascot_2.png" alt="CoVe Logo" class="cove-logo">
+    CoVe: Training Interactive Tool-Use Agents<br>via Constraint-Guided Verification
+  </h1>
+
+  <div class="author-list">
+    Jinpeng Chen<sup>1*</sup>,&nbsp;
+    Cheng Gong<sup>1*</sup>,&nbsp;
+    Hanbo Li<sup>2*</sup>,&nbsp;
+    Ziru Liu<sup>1</sup>,&nbsp;
+    Zichen Tian<sup>2</sup>,&nbsp;
+    Xinyu Fu<sup>1</sup>,&nbsp;
+    Shi Wu<sup>1</sup>,<br>
+    Chenyang Zhang<sup>1</sup>,&nbsp;
+    Wu Zhang<sup>1</sup>,&nbsp;
+    Suiyun Zhang<sup>1</sup>,&nbsp;
+    Dandan Tu<sup>1</sup>,&nbsp;
+    Rui Liu<sup>1✉</sup>
   </div>
 
-  <main id="main-content">
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <!-- TODO: Replace with your paper title -->
-            <h1 class="title is-1 publication-title">Academic Project Page</h1>
-            <div class="is-size-5 publication-authors">
-              <!-- TODO: Replace with your paper authors and their personal links -->
-              <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">First Author</a><sup>*</sup>,</span>
-                <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Second Author</a><sup>*</sup>,</span>
-                  <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Third Author</a>
-                  </span>
-                  </div>
+  <div class="affiliation-line">
+    <sup>1</sup>Huawei Research&ensp;&ensp;<sup>2</sup>Independent Researcher
+  </div>
+  <div class="contrib-note">
+    *Equal contribution &ensp;✉ Corresponding author
+  </div>
 
-                  <div class="is-size-5 publication-authors">
-                    <!-- TODO: Replace with your institution and conference/journal info -->
-                    <span class="author-block">Institution Name<br>Conference name and year</span>
-                    <!-- TODO: Remove this line if no equal contribution -->
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
-                  </div>
-
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-                         <!-- TODO: Update with your arXiv paper ID -->
-                      <span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span>
-
-                    <!-- TODO: Add your supplementary material PDF or remove this section -->
-                    <span class="link-block">
-                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon">
-                        <i class="fas fa-file-pdf"></i>
-                      </span>
-                      <span>Supplementary</span>
-                    </a>
-                  </span>
-
-                  <!-- TODO: Replace with your GitHub repository URL -->
-                  <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
-
-                <!-- TODO: Update with your arXiv paper ID -->
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="link-buttons">
+    <a href="PLACEHOLDER_ARXIV_LINK" target="_blank" class="link-btn btn-outline">
+      <i class="ai ai-arxiv"></i> arXiv
+    </a>
+    <a href="PLACEHOLDER_GITHUB_LINK" target="_blank" class="link-btn btn-outline">
+      <i class="fab fa-github"></i> Code
+    </a>
+    <a href="PLACEHOLDER_HUGGINGFACE_LINK" target="_blank" class="link-btn btn-outline">
+      <i class="fas fa-robot"></i> HuggingFace
+    </a>
   </div>
 </section>
 
 
-<!-- Teaser video-->
-<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <!-- TODO: Replace with your teaser video -->
-      <video poster="" id="tree" autoplay controls muted loop height="100%" preload="metadata">
-        <!-- TODO: Add your video file path here -->
-        <source src="static/videos/banner_video.mp4" type="video/mp4">
-      </video>
-      <!-- TODO: Replace with your video description -->
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
-    </div>
-  </div>
-</section>
-<!-- End teaser video -->
-
-<!-- Paper abstract -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <!-- TODO: Replace with your paper abstract -->
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- End paper abstract -->
-
-
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- TODO: Replace with your research result images -->
-        <img src="static/images/carousel1.jpg" alt="First research result visualization" loading="lazy"/>
-        <!-- TODO: Replace with description of this result -->
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="Second research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="Third research result visualization" loading="lazy"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="Fourth research result visualization" loading="lazy"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
+<!-- ─── TEASER FIGURE ─── -->
+<div style="background:#fff; padding: 3rem 2rem 1.5rem;">
+  <div style="max-width:900px; margin:0 auto;">
+    <div class="fig-container">
+      <img src="static/images/first_histogram.png" alt="Performance evaluation on τ²-bench Airline and Retail domains" style="width:100%; border-radius:12px; border:1px solid var(--border); box-shadow:0 4px 20px rgba(0,0,0,0.06);">
+      <p class="fig-caption">
+        <b>Figure 1.</b> Performance evaluation on the &tau;<sup>2</sup>-bench Airline and Retail domains.
+        We report success rates across <i>pass</i><sup>1</sup> to <i>pass</i><sup>4</sup> metrics
+        to assess both peak performance and stability.
+        CoVe-4B (4B parameters) rivals models up to 17&times; its size.
+      </p>
     </div>
   </div>
 </div>
+
+
+<!-- ─── ABSTRACT ─── -->
+<div class="full-width-shaded" id="abstract">
+  <div class="content-section">
+    <h2 class="section-title">Abstract</h2>
+    <p class="abstract-text">
+      Developing multi-turn interactive tool-use agents is challenging because real-world user needs are often
+      complex and ambiguous, yet agents must execute deterministic actions to satisfy them.
+      To address this gap, we introduce <b>CoVe</b> (<b>Co</b>nstraint-<b>Ve</b>rification),
+      a post-training data synthesis framework designed for training interactive tool-use agents
+      while ensuring both data complexity and correctness.
+      CoVe begins by defining explicit task constraints, which serve a dual role: they guide the
+      generation of complex trajectories and act as deterministic verifiers for assessing
+      trajectory quality. This enables the creation of high-quality training trajectories for
+      supervised fine-tuning (SFT) and the derivation of accurate reward signals for
+      reinforcement learning (RL).
+      Our evaluation on the challenging &tau;<sup>2</sup>-bench benchmark demonstrates the effectiveness
+      of the framework. Notably, our compact <b>CoVe-4B</b> model achieves success rates of
+      43.0% and 59.4% in the Airline and Retail domains, respectively; its overall
+      performance significantly outperforms strong baselines of similar scale and remains competitive
+      with models up to 17&times; its size.
+      To support future research, we open-source our code, trained model, and the full set of
+      12K high-quality trajectories used for training.
+    </p>
+
+    <!-- Key stats row -->
+    <div class="highlights-row" style="margin-top:2.5rem;">
+      <div class="highlight-card">
+        <div class="big-num">51.2%</div>
+        <div class="big-label"><i>pass</i><sup>1</sup> Average (CoVe-4B)</div>
+      </div>
+      <div class="highlight-card">
+        <div class="big-num">12K</div>
+        <div class="big-label">High-quality trajectories (open-sourced)</div>
+      </div>
+      <div class="highlight-card">
+        <div class="big-num">17×</div>
+        <div class="big-label">Competitive with models up to this size</div>
+      </div>
+      <div class="highlight-card">
+        <div class="big-num">+18.6%</div>
+        <div class="big-label">Absolute improvement over base model</div>
+      </div>
+    </div>
+  </div>
 </div>
-</section>
-<!-- End image carousel -->
 
 
+<!-- ─── CONTRIBUTIONS ─── -->
+<div style="background:#fff;">
+  <div class="content-section">
+    <h2 class="section-title">Main Contributions</h2>
+    <ul class="contrib-list">
+      <li>
+        <span class="icon"><i class="fas fa-cubes"></i></span>
+        <div>We propose CoVe, a post-training data synthesis framework that generates multi-turn interactive
+        tool-use trajectories and performs deterministic verification based on explicit constraints,
+        ensuring both complexity and correctness.</div>
+      </li>
+      <li>
+        <span class="icon"><i class="fas fa-trophy"></i></span>
+        <div>We demonstrate that data synthesized by CoVe effectively supports both SFT and RL.
+        Our CoVe-4B model achieves strong performance despite its smaller scale, surpassing state-of-the-art
+        models of similar or moderately larger sizes, and performing competitively against models with
+        several times more parameters.</div>
+      </li>
+      <li>
+        <span class="icon"><i class="fas fa-share-alt"></i></span>
+        <div>To facilitate future research, we open-source our code, the trained model, and the full set of
+        12K high-quality interactive tool-use trajectories used to train the model.</div>
+      </li>
+    </ul>
+  </div>
+</div>
 
 
-<!-- Youtube video -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- TODO: Replace with your YouTube video ID -->
-            <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
+<!-- ─── METHOD ─── -->
+<div class="full-width-shaded" id="method">
+  <div class="content-section">
+    <h2 class="section-title">The CoVe Framework</h2>
+
+    <!-- Pipeline figure -->
+    <div class="fig-container">
+      <img src="static/images/overall_pipeline.png" alt="CoVe overall pipeline" style="width:100%; border-radius:12px; border:1px solid var(--border); box-shadow:0 4px 20px rgba(0,0,0,0.06);">
+      <p class="fig-caption">
+        <b>Figure 2.</b> The CoVe framework. Explicit constraints are sampled and fuzzified to guide a
+        User Simulator LLM in generating ambiguous, realistic queries. Upon conversation completion,
+        the original deterministic constraints act as a checklist to automatically verify the agent's
+        tool invocations.
+      </p>
+    </div>
+
+    <p style="font-size:1rem; color:var(--text-mid); margin-bottom: 2rem;">
+      CoVe operates through a four-step pipeline: <b>(1) Constraint Sampling</b>,
+      <b>(2) Constraint Fuzzification</b>, <b>(3) Trajectory Generation</b>, and
+      <b>(4) Deterministic Trajectory Verification</b>.
+    </p>
+
+    <!-- Step cards -->
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h4>Constraint Sampling</h4>
+        <p>A set of deterministic constraints <i>C = {c₁, c₂, …, cₙ}</i> is sampled directly
+        from sandbox database records. Since all constraints are grounded in actual data,
+        task solvability is logically guaranteed from the start.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h4>Constraint Fuzzification</h4>
+        <p>Explicit identifiers (e.g., Order IDs) are transformed into natural, ambiguous descriptions
+        (e.g., "the order with a blue shirt and leather shoes"), mimicking how real users communicate.
+        Logical uniqueness is preserved throughout the transformation.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h4>Trajectory Generation</h4>
+        <p>A User Simulator LLM uses the fuzzified instructions to engage in multi-turn dialogues
+        with the Agent, progressively revealing needs rather than disclosing all constraints at once,
+        increasing task difficulty and realism.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">4</div>
+        <h4>Deterministic Verification</h4>
+        <p>A rule-based verifier <i>V(τ, C)</i> checks the agent's tool invocations against each
+        constraint. Unlike LLM-based evaluation, this yields exact, hallucination-free quality
+        assessment, enabling reliable SFT data filtering and RL reward signals.</p>
+      </div>
+    </div>
+
+    <!-- Training paradigms sub-section -->
+    <h3 style="font-size:1.4rem; font-weight:700; margin: 3rem 0 1rem;">Post-Training with CoVe</h3>
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;">
+      <div class="step-card" style="border-left: 4px solid var(--primary);">
+        <h4 style="color:var(--primary);">Supervised Fine-Tuning (SFT)</h4>
+        <p>A powerful teacher model generates candidate trajectories. Only those receiving a perfect
+        verification score (all constraints satisfied, zero redundancy) are retained, forming a
+        clean, high-quality SFT dataset for training the student model.</p>
+      </div>
+      <div class="step-card" style="border-left: 4px solid var(--accent);">
+        <h4 style="color:var(--accent);">Reinforcement Learning (RL)</h4>
+        <p>CoVe serves as both the training environment and reward provider. The student agent
+        interacts with the User Simulator to explore solution paths; the verifier's score is
+        directly used as the RL reward signal, enabling self-improving learning loops.</p>
       </div>
     </div>
   </div>
-</section>
-<!-- End youtube video -->
+</div>
 
 
-<!-- Video carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video1" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video2" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <!-- TODO: Add poster image for better preview -->
-          <video poster="" id="video3" controls muted loop height="100%" preload="metadata">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
+<!-- ─── RESULTS ─── -->
+<div style="background:#fff;" id="results">
+  <div class="content-section">
+    <h2 class="section-title">Experimental Results</h2>
+
+    <p style="color:var(--text-mid); font-size:1rem; margin-bottom:2rem;">
+      We evaluate all models on the Airline and Retail domains of &tau;<sup>2</sup>-bench,
+      using GPT-4.1 as the User Simulator and reporting <i>pass<sup>k</sup></i> metrics
+      (k = 1–4) to assess both task success rate and multi-trial stability.
+    </p>
+
+    <p class="table-caption">
+      <b>Table 1.</b> Main results evaluating proprietary and open-source models on the Airline and
+      Retail domains of &tau;<sup>2</sup>-bench. <b>Bold</b> and <u>underline</u> denote the best
+      and second-best results within each group. CoVe-4B (highlighted in blue) achieves top results
+      in the &le;8B group and rivals much larger models.
+    </p>
+
+    <div class="results-table-wrap">
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th rowspan="2" style="text-align:left; width:140px; min-width:140px;">Model</th>
+            <th colspan="4">Airline</th>
+            <th colspan="4">Retail</th>
+            <th colspan="4">Average</th>
+          </tr>
+          <tr>
+            <th><i>pass</i><sup>1</sup></th><th><i>pass</i><sup>2</sup></th><th><i>pass</i><sup>3</sup></th><th><i>pass</i><sup>4</sup></th>
+            <th><i>pass</i><sup>1</sup></th><th><i>pass</i><sup>2</sup></th><th><i>pass</i><sup>3</sup></th><th><i>pass</i><sup>4</sup></th>
+            <th><i>pass</i><sup>1</sup></th><th><i>pass</i><sup>2</sup></th><th><i>pass</i><sup>3</sup></th><th><i>pass</i><sup>4</sup></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="group-row"><td colspan="13">Proprietary Models</td></tr>
+          <tr>
+            <td>GPT-5</td>
+            <td class="best">62.5%</td><td class="best">55.3%</td><td class="best">51.0%</td><td class="best">48.0%</td>
+            <td class="best">81.6%</td><td class="best">71.8%</td><td class="best">64.7%</td><td class="best">58.8%</td>
+            <td class="best">72.1%</td><td class="best">63.6%</td><td class="best">57.9%</td><td class="best">53.4%</td>
+          </tr>
+          <tr>
+            <td>GPT-4o</td>
+            <td class="second">47.6%</td><td class="second">35.7%</td><td class="second">30.0%</td><td class="second">26.5%</td>
+            <td class="second">64.0%</td><td class="second">50.8%</td><td class="second">43.0%</td><td class="second">37.7%</td>
+            <td class="second">55.8%</td><td class="second">43.3%</td><td class="second">36.5%</td><td class="second">32.1%</td>
+          </tr>
+
+          <tr class="group-row"><td colspan="13">Open-Source Models (≥70B)</td></tr>
+          <tr>
+            <td>Qwen3-235B-A22B-Inst.</td>
+            <td class="best">48.5%</td><td class="best">37.7%</td><td class="best">31.0%</td><td class="best">26.0%</td>
+            <td class="best">63.6%</td><td class="best">51.2%</td><td class="best">44.5%</td><td class="best">39.5%</td>
+            <td class="best">56.1%</td><td class="best">44.5%</td><td class="best">37.8%</td><td class="best">32.8%</td>
+          </tr>
+          <tr>
+            <td>xLAM-2-70b-fc-r</td>
+            <td class="second">43.3%</td><td class="second">31.2%</td><td class="second">25.2%</td><td class="second">20.7%</td>
+            <td class="second">59.7%</td><td class="second">44.1%</td><td class="second">35.8%</td><td class="second">30.3%</td>
+            <td class="second">51.5%</td><td class="second">37.6%</td><td class="second">30.5%</td><td class="second">25.5%</td>
+          </tr>
+
+          <tr class="group-row"><td colspan="13">Open-Source Models (~30B)</td></tr>
+          <tr>
+            <td>Simia-Tau-32B</td>
+            <td class="best">48.5%</td><td class="best">36.3%</td><td class="best">32.0%</td><td class="best">30.0%</td>
+            <td class="best">62.5%</td><td class="best">50.1%</td><td class="best">41.9%</td><td class="best">36.0%</td>
+            <td class="best">55.5%</td><td class="best">43.2%</td><td class="best">37.0%</td><td class="best">33.0%</td>
+          </tr>
+          <tr>
+            <td>xLAM-2-32b-fc-r</td>
+            <td class="second">47.0%</td><td class="best">36.3%</td><td class="second">31.5%</td><td class="second">28.0%</td>
+            <td>52.1%</td><td>37.1%</td><td>29.2%</td><td>24.6%</td>
+            <td class="second">49.5%</td><td class="second">36.7%</td><td class="second">30.3%</td><td class="second">26.3%</td>
+          </tr>
+          <tr>
+            <td>GEM-32B</td>
+            <td>35.5%</td><td>–</td><td>–</td><td>–</td>
+            <td class="second">55.5%</td><td>–</td><td>–</td><td>–</td>
+            <td>45.5%</td><td>–</td><td>–</td><td>–</td>
+          </tr>
+          <tr>
+            <td>Qwen3-30B-A3B-Inst.</td>
+            <td>33.5%</td><td>20.0%</td><td>13.5%</td><td>10.0%</td>
+            <td>53.5%</td><td class="second">41.2%</td><td class="second">34.4%</td><td class="second">29.8%</td>
+            <td>43.5%</td><td>30.6%</td><td>24.0%</td><td>19.9%</td>
+          </tr>
+
+          <tr class="group-row"><td colspan="13">Open-Source Models (≤8B)</td></tr>
+          <tr>
+            <td>Simia-Tau-8B</td>
+            <td>42.5%</td><td class="second">33.0%</td><td class="best">29.0%</td><td class="best">26.0%</td>
+            <td class="second">52.4%</td><td>39.6%</td><td>32.7%</td><td>28.1%</td>
+            <td>47.5%</td><td>36.3%</td><td>30.9%</td><td>27.1%</td>
+          </tr>
+          <tr>
+            <td>Simia-Tau-RL-8B</td>
+            <td class="second">43.0%</td><td class="best">34.0%</td><td class="best">29.0%</td><td class="best">26.0%</td>
+            <td class="second">52.4%</td><td class="second">41.1%</td><td class="second">34.9%</td><td class="second">30.7%</td>
+            <td class="second">47.7%</td><td class="second">37.6%</td><td class="second">32.0%</td><td class="second">28.4%</td>
+          </tr>
+          <tr>
+            <td>xLAM-2-8b-fc-r</td>
+            <td>33.5%</td><td>19.2%</td><td>12.5%</td><td>9.0%</td>
+            <td>48.9%</td><td>34.5%</td><td>27.5%</td><td>22.5%</td>
+            <td>41.2%</td><td>26.8%</td><td>20.0%</td><td>15.9%</td>
+          </tr>
+          <tr>
+            <td>GEM-8B</td>
+            <td>22.0%</td><td>–</td><td>–</td><td>–</td>
+            <td>44.5%</td><td>–</td><td>–</td><td>–</td>
+            <td>33.3%</td><td>–</td><td>–</td><td>–</td>
+          </tr>
+          <tr>
+            <td>Qwen3-4B-Inst.</td>
+            <td>25.0%</td><td>17.0%</td><td>13.0%</td><td>10.0%</td>
+            <td>40.1%</td><td>27.3%</td><td>21.7%</td><td>18.4%</td>
+            <td>32.6%</td><td>22.2%</td><td>17.4%</td><td>14.2%</td>
+          </tr>
+          <tr>
+            <td>Simia-Tau-3B</td>
+            <td>36.0%</td><td>–</td><td>–</td><td>–</td>
+            <td>32.0%</td><td>–</td><td>–</td><td>–</td>
+            <td>34.0%</td><td>–</td><td>–</td><td>–</td>
+          </tr>
+          <tr>
+            <td>xLAM-2-3b-fc-r</td>
+            <td>24.0%</td><td>12.7%</td><td>7.5%</td><td>4.0%</td>
+            <td>15.1%</td><td>8.8%</td><td>6.4%</td><td>5.3%</td>
+            <td>19.6%</td><td>10.8%</td><td>7.0%</td><td>4.7%</td>
+          </tr>
+          <!-- OUR ROW -->
+          <tr class="ours">
+            <td>CoVe-4B <span class="tag-pill">Ours</span></td>
+            <td class="best">43.0%</td><td>30.0%</td><td>23.5%</td><td>20.0%</td>
+            <td class="best">59.4%</td><td class="best">50.0%</td><td class="best">45.0%</td><td class="best">41.2%</td>
+            <td class="best">51.2%</td><td class="best">40.0%</td><td class="best">34.3%</td><td class="best">30.6%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="font-size:1.3rem; font-weight:700; margin-top:3rem;">Key Findings</h3>
+    <ul style="color:var(--text-mid); font-size:0.97rem; line-height:1.9; padding-left:1.4rem; margin-top:0.8rem;">
+      <li><b>Top in ≤8B class:</b> CoVe-4B achieves the highest average <i>pass</i><sup>1</sup> of <b>51.2%</b> in the ≤8B group,
+          outperforming Simia-Tau-RL-8B (47.7%) and xLAM-2-8b-fc-r (41.2%).</li>
+      <li><b>Cross-scale efficiency:</b> CoVe-4B surpasses mid-scale (~30B) models such as xLAM-2-32b-fc-r (49.5%),
+          and closely approaches the massive xLAM-2-70b-fc-r (51.5%) — a model nearly <b>17× its size</b>.</li>
+      <li><b>Narrow gap vs. frontier:</b> Performance gap is only 4.9% behind Qwen3-235B and 4.6% behind GPT-4o.</li>
+      <li><b>Strong base improvement:</b> Compared to its base model (Qwen3-4B-Inst.), CoVe training yields a striking
+          <b>+18.6%</b> absolute improvement in average <i>pass</i><sup>1</sup>.</li>
+    </ul>
+  </div>
+</div>
+
+
+
+
+<!-- ─── BIBTEX ─── -->
+<div class="full-width-shaded" id="bibtex">
+  <div class="content-section">
+    <h2 class="section-title">BibTeX</h2>
+    <div class="bibtex-wrap">
+      <pre class="bibtex-code" id="bibtex-content">@article{Chen2026CoVe,
+  title   = {CoVe: Training Interactive Tool-Use Agents via Constraint-Guided Verification},
+  author  = {Chen, Jinpeng and Gong, Cheng and Li, Hanbo and Liu, Ziru and
+             Tian, Zichen and Fu, Xinyu and Wu, Shi and Zhang, Chenyang and
+             Zhang, Wu and Zhang, Suiyun and Tu, Dandan and Liu, Rui},
+  journal = {arXiv preprint arXiv:PLACEHOLDER_ARXIV_ID},
+  year    = {2026}
+}</pre>
+      <button class="copy-btn" onclick="copyBibtex()" id="copy-btn-text">
+        <i class="fas fa-copy"></i> Copy
+      </button>
     </div>
   </div>
-</section>
-<!-- End video carousel -->
+</div>
 
 
-
-
-
-
-<!-- Paper poster -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <!-- TODO: Replace with your poster PDF -->
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
-      </div>
-    </div>
-  </section>
-<!--End paper poster -->
-
-
-
-<!--BibTex citation -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <div class="bibtex-header">
-        <h2 class="title">BibTeX</h2>
-        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
-          <i class="fas fa-copy"></i>
-          <span class="copy-text">Copy</span>
-        </button>
-      </div>
-      <pre id="bibtex-code"><code>@article{YourPaperKey2024,
-  title={Your Paper Title Here},
-  author={First Author and Second Author and Third Author},
-  journal={Conference/Journal Name},
-  year={2024},
-  url={https://your-domain.com/your-project-page}
-}</code></pre>
-    </div>
-</section>
-<!--End BibTex citation -->
-
-
-  <footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        <div class="content">
-
-          <p>
-            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
-            Commons Attribution-ShareAlike 4.0 International License</a>.
-          </p>
-
-        </div>
-      </div>
-    </div>
-  </div>
+<!-- ─── FOOTER ─── -->
+<footer class="site-footer">
+  <p>
+    This page was built using the
+    <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>
+    adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+  </p>
+  <p style="margin-top:0.5rem;">
+    Licensed under a
+    <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">
+      Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+  </p>
 </footer>
 
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+<!-- Scroll to top -->
+<button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top">
+  <i class="fas fa-chevron-up"></i>
+</button>
 
-    <!-- End of Statcounter Code -->
+<script>
+  // Show/hide scroll-to-top button
+  window.addEventListener('scroll', function() {
+    var btn = document.getElementById('scroll-top');
+    if (window.scrollY > 400) btn.classList.add('visible');
+    else btn.classList.remove('visible');
+  });
 
-  </body>
-  </html>
+  // Copy BibTeX
+  function copyBibtex() {
+    var text = document.getElementById('bibtex-content').innerText;
+    navigator.clipboard.writeText(text).then(function() {
+      var btn = document.getElementById('copy-btn-text');
+      btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+      setTimeout(function() {
+        btn.innerHTML = '<i class="fas fa-copy"></i> Copy';
+      }, 2000);
+    });
+  }
+</script>
+
+</body>
+</html>
