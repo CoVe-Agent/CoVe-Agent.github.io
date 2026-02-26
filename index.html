@@ -268,7 +268,7 @@
       margin-top: 1rem;
       font-size: 0.9rem;
       color: var(--text-mid);
-      text-align: center;
+      text-align: justify;
       line-height: 1.6;
     }
     .fig-caption b { color: var(--text-dark); }
@@ -342,10 +342,10 @@
     .results-table thead tr:last-child th,
     .results-table tbody td,
     .results-table tbody th {
-      font-size: 0.68rem;
+      font-size: 0.8rem;
     }
     .results-table th, .results-table td {
-      padding: 0.65rem 0.85rem;
+      padding: 0.4rem 0.6rem;
       text-align: center;
       border: 1px solid var(--border);
     }
@@ -371,14 +371,20 @@
       font-weight: 700;
       color: var(--text-dark);
     }
+    /* Top-level headers: Model / Airline / Retail / Average */
+    .results-table thead tr:first-child th {
+      font-size: 0.95rem;
+      text-align: center;
+    }
     .results-table .group-row td {
       background: #f8fafc;
       font-style: italic;
       color: var(--text-mid);
       font-weight: 600;
+      font-size: 0.9rem;
       text-align: center;
     }
-    .results-table td:first-child { text-align: left; font-weight: 500; }
+    .results-table tbody tr:not(.group-row) td:first-child { text-align: left; font-weight: 500; }
     .results-table .ours td {
       background: #dbeafe;
     }
@@ -546,8 +552,8 @@
     Hanbo Li<sup>2*</sup>,&nbsp;
     Ziru Liu<sup>1</sup>,&nbsp;
     Zichen Tian<sup>2</sup>,&nbsp;
-    Xinyu Fu<sup>1</sup>,&nbsp;
-    Shi Wu<sup>1</sup>,<br>
+    Xinyu Fu<sup>1</sup>,<br>
+    Shi Wu<sup>1</sup>,&nbsp;
     Chenyang Zhang<sup>1</sup>,&nbsp;
     Wu Zhang<sup>1</sup>,&nbsp;
     Suiyun Zhang<sup>1</sup>,&nbsp;
@@ -684,9 +690,9 @@
     </div>
 
     <p style="font-size:1rem; color:var(--text-mid); margin-bottom: 2rem;">
-      CoVe operates through a four-step pipeline: <b>(1) Constraint Sampling</b>,
-      <b>(2) Constraint Fuzzification</b>, <b>(3) Trajectory Generation</b>, and
-      <b>(4) Deterministic Trajectory Verification</b>.
+      CoVe operates through a four-step pipeline: <b>(1)</b> Constraint Sampling,
+      <b>(2)</b> Constraint Fuzzification, <b>(3)</b> Trajectory Generation, and
+      <b>(4)</b> Deterministic Trajectory Verification.
     </p>
 
     <!-- Step cards -->
@@ -763,7 +769,7 @@
       <table class="results-table">
         <thead>
           <tr>
-            <th rowspan="2" style="text-align:left; width:140px; min-width:140px;">Model</th>
+            <th rowspan="2" style="width:140px; min-width:140px; vertical-align:middle;">Model</th>
             <th colspan="4">Airline</th>
             <th colspan="4">Retail</th>
             <th colspan="4">Average</th>
@@ -885,13 +891,13 @@
 
     <h3 style="font-size:1.3rem; font-weight:700; margin-top:3rem;">Key Findings</h3>
     <ul style="color:var(--text-mid); font-size:0.97rem; line-height:1.9; padding-left:1.4rem; margin-top:0.8rem;">
-      <li><b>Top in ≤8B class:</b> CoVe-4B achieves the highest average <i>pass</i><sup>1</sup> of <b>51.2%</b> in the ≤8B group,
+      <li><b>Top in ≤8B class:</b> CoVe-4B achieves the highest average <i>pass</i><sup>1</sup> of 51.2% in the ≤8B group,
           outperforming Simia-Tau-RL-8B (47.7%) and xLAM-2-8b-fc-r (41.2%).</li>
       <li><b>Cross-scale efficiency:</b> CoVe-4B surpasses mid-scale (~30B) models such as xLAM-2-32b-fc-r (49.5%),
-          and closely approaches the massive xLAM-2-70b-fc-r (51.5%) — a model nearly <b>17× its size</b>.</li>
+          and closely approaches the massive xLAM-2-70b-fc-r (51.5%) — a model nearly 17× its size.</li>
       <li><b>Narrow gap vs. frontier:</b> Performance gap is only 4.9% behind Qwen3-235B and 4.6% behind GPT-4o.</li>
       <li><b>Strong base improvement:</b> Compared to its base model (Qwen3-4B-Inst.), CoVe training yields a striking
-          <b>+18.6%</b> absolute improvement in average <i>pass</i><sup>1</sup>.</li>
+          +18.6% absolute improvement in average <i>pass</i><sup>1</sup>.</li>
     </ul>
   </div>
 </div>
